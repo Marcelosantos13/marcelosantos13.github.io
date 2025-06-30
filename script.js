@@ -270,9 +270,23 @@ function showTab(tabName) {
   appState.currentTab = tabName
 }
 
-// Admin panel
+// Admin panel com senha
+const ADMIN_PASSWORD = "Minhamae13@#$"; // MUDE PARA SUA SENHA!
+
 function toggleAdmin() {
-  elements.adminPanel.classList.toggle("hidden")
+  if (elements.adminPanel.classList.contains("hidden")) {
+    // Pedir senha para abrir
+    const password = prompt("🔒 Digite a senha do administrador:");
+    if (password === ADMIN_PASSWORD) {
+      elements.adminPanel.classList.remove("hidden");
+      alert("✅ Acesso liberado! Bem-vindo ao painel admin.");
+    } else if (password !== null) { // Se não cancelou
+      alert("❌ Senha incorreta! Acesso negado.");
+    }
+  } else {
+    // Fechar sem senha
+    elements.adminPanel.classList.add("hidden");
+  }
 }
 
 function showAdminTab(tabName) {
