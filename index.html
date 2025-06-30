@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcelo Santos Melo - Músico | JonhMax Grupo Virtual</title>
+    <meta name="description" content="Marcelo Santos Melo - Músico, compositor e idealizador do JonhMax Grupo Virtual. Projeto musical inovador que une criação autoral com inteligência artificial.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="artist-info">
+                    <img src="images/marcelo-photo.png" alt="Marcelo Santos Melo" class="artist-photo">
+                    <div class="artist-details">
+                        <h1>Marcelo Santos Melo</h1>
+                        <p>Músico • JonhMax Grupo Virtual</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="status-indicator">
+                        <div class="status-dot active"></div>
+                        <span>SoundCloud OK</span>
+                    </div>
+                    <button class="admin-btn" onclick="toggleAdmin()">
+                        <i class="fas fa-cog"></i> Admin
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTab('home')">
+                    <i class="fas fa-home"></i> Início
+                </button>
+                <button class="nav-tab" onclick="showTab('music')">
+                    <i class="fas fa-music"></i> Músicas
+                </button>
+                <button class="nav-tab" onclick="showTab('albums')">
+                    <i class="fas fa-compact-disc"></i> Álbuns
+                </button>
+                <button class="nav-tab" onclick="showTab('news')">
+                    <i class="fas fa-newspaper"></i> Notícias
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Home Tab -->
+            <div id="home-tab" class="tab-content active">
+                <!-- Sobre Marcelo -->
+                <section class="about-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Marcelo Santos Melo - Idealizador</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="about-grid">
+                                <div class="about-image">
+                                    <img src="images/marcelo-photo.png" alt="Marcelo Santos Melo">
+                                </div>
+                                <div class="about-text">
+                                    <p>Marcelo Santos Melo é letrista, compositor, músico e produtor apaixonado pelas palavras e pelos sons. Desde cedo envolvido com a música, encontrou na composição uma forma de traduzir sentimentos, ideias e reflexões em letras marcantes e sonoridades únicas.</p>
+                                    
+                                    <p>Idealizador do projeto JonhMax Grupo Virtual, Marcelo encontrou na escrita e na música não apenas uma paixão, mas um caminho de expressão autêntica. Com um olhar aberto às transformações tecnológicas e artísticas do nosso tempo, vislumbrou no JonhMax uma nova forma de criar, experimentar e compartilhar sons com o mundo.</p>
+                                    
+                                    <blockquote>"Caminhamos lado a lado com os avanços tecnológicos, abrindo novas fronteiras para a música."</blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sobre JonhMax -->
+                <section class="project-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-info-circle"></i> Sobre o JonhMax</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="project-grid">
+                                <div class="project-text">
+                                    <h3>Grupo Virtual</h3>
+                                    <p>JonhMax Grupo Virtual é um coletivo musical digital que une criação autoral com inteligência artificial. Nosso trabalho nasce da fusão entre emoção e tecnologia: letras escritas por Marcelo ganham vida com arranjos criados a partir de IAs musicais, arquivos MIDI e escolhas cuidadosas de gênero, estilo e instrumentação.</p>
+                                    
+                                    <p>Somos movidos pela curiosidade e pelas possibilidades que as ferramentas digitais oferecem à música. Cada faixa é o resultado de um processo criativo colaborativo, que valoriza tanto a sensibilidade artística quanto a inovação técnica.</p>
+                                </div>
+                                <div class="project-image">
+                                    <img src="images/jonhmax-logo.png" alt="JonhMax Logo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Últimas Músicas -->
+                <section class="latest-music">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-fire"></i> Últimos Lançamentos</h2>
+                        </div>
+                        <div class="card-content">
+                            <div id="latest-songs" class="songs-list">
+                                <!-- Músicas serão carregadas via JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Music Tab -->
+            <div id="music-tab" class="tab-content">
+                <div id="songs-grid" class="songs-grid">
+                    <!-- Músicas serão carregadas via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Albums Tab -->
+            <div id="albums-tab" class="tab-content">
+                <div id="albums-grid" class="albums-grid">
+                    <!-- Álbuns serão carregados via JavaScript -->
+                </div>
+            </div>
+
+            <!-- News Tab -->
+            <div id="news-tab" class="tab-content">
+                <div id="news-list" class="news-list">
+                    <!-- Notícias serão carregadas via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Player Fixo -->
+    <div id="player" class="player hidden">
+        <div class="container">
+            <div class="player-content">
+                <div class="player-info">
+                    <img id="player-cover" src="/placeholder.svg" alt="" class="player-cover">
+                    <div class="player-details">
+                        <div id="player-title" class="player-title"></div>
+                        <div id="player-album" class="player-album"></div>
+                        <div class="player-status">
+                            <span id="player-type" class="player-type"></span>
+                            <span id="player-loading" class="player-loading hidden">Carregando...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="player-controls">
+                    <button id="prev-btn" class="control-btn">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button id="play-btn" class="control-btn play-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button id="next-btn" class="control-btn">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+
+                <div class="player-volume">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volume-slider" min="0" max="100" value="70" class="volume-slider">
+                </div>
+            </div>
+
+            <div class="player-progress">
+                <span id="current-time" class="time">0:00</span>
+                <input type="range" id="progress-slider" min="0" max="100" value="0" class="progress-slider">
+                <span id="duration-time" class="time">0:00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Hidden) -->
+    <div id="admin-panel" class="admin-panel hidden">
+        <div class="admin-header">
+            <button class="close-admin" onclick="toggleAdmin()">
+                <i class="fas fa-arrow-left"></i> Voltar ao Player
+            </button>
+            <div class="admin-title">
+                <h1>Painel Administrativo</h1>
+                <p>Marcelo Santos Melo - JonhMax Grupo Virtual</p>
+            </div>
+        </div>
+        
+        <div class="admin-content">
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="showAdminTab('overview')">
+                    <i class="fas fa-chart-bar"></i> Visão Geral
+                </button>
+                <button class="admin-tab" onclick="showAdminTab('add-song')">
+                    <i class="fas fa-plus"></i> Adicionar Música
+                </button>
+                <button class="admin-tab" onclick="showAdminTab('add-album')">
+                    <i class="fas fa-compact-disc"></i> Adicionar Álbum
+                </button>
+                <button class="admin-tab" onclick="showAdminTab('add-news')">
+                    <i class="fas fa-newspaper"></i> Adicionar Notícia
+                </button>
+            </div>
+
+            <!-- Admin Tab Contents -->
+            <div id="admin-overview" class="admin-tab-content active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-music"></i></div>
+                        <div class="stat-info">
+                            <div id="total-songs" class="stat-number">0</div>
+                            <div class="stat-label">Total Músicas</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-compact-disc"></i></div>
+                        <div class="stat-info">
+                            <div id="total-albums" class="stat-number">0</div>
+                            <div class="stat-label">Álbuns</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-newspaper"></i></div>
+                        <div class="stat-info">
+                            <div id="total-news" class="stat-number">0</div>
+                            <div class="stat-label">Notícias</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="admin-add-song" class="admin-tab-content">
+                <div class="form-card">
+                    <h3><i class="fas fa-plus"></i> Adicionar Nova Música</h3>
+                    <form id="song-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Título da Música</label>
+                                <input type="text" id="song-title" placeholder="Ex: Brilho do Teu Olhar" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Álbum</label>
+                                <input type="text" id="song-album" placeholder="Ex: Singles" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Duração</label>
+                                <input type="text" id="song-duration" placeholder="Ex: 3:45">
+                            </div>
+                            <div class="form-group">
+                                <label>Tags (separadas por vírgula)</label>
+                                <input type="text" id="song-tags" placeholder="romântica, acústica">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>🎵 URL do Arquivo de Áudio (Opcional)</label>
+                            <input type="url" id="song-audio-url" placeholder="https://exemplo.com/musica.mp3">
+                            <small>✅ Link direto para arquivo MP3, WAV, M4A - Toca no player interno</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>🎧 Código Embed do SoundCloud (Recomendado)</label>
+                            <textarea id="song-soundcloud-embed" placeholder='<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=..."></iframe>' rows="4"></textarea>
+                            <small>🎧 Cole o código embed completo do SoundCloud - Funciona com músicas privadas!</small>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-plus"></i> Adicionar Música
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="admin-add-album" class="admin-tab-content">
+                <div class="form-card">
+                    <h3><i class="fas fa-compact-disc"></i> Adicionar Novo Álbum</h3>
+                    <form id="album-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Nome do Álbum</label>
+                                <input type="text" id="album-name" placeholder="Ex: Singles" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ano de Lançamento</label>
+                                <input type="text" id="album-year" placeholder="2024" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Descrição</label>
+                            <textarea id="album-description" placeholder="Descrição do álbum..." rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>🖼️ URL da Capa do Álbum</label>
+                            <input type="url" id="album-cover-url" placeholder="https://exemplo.com/capa-album.jpg">
+                            <small>💡 Cole a URL da imagem da capa (JPG, PNG, WebP)</small>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-plus"></i> Adicionar Álbum
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="admin-add-news" class="admin-tab-content">
+                <div class="form-card">
+                    <h3><i class="fas fa-newspaper"></i> Adicionar Nova Notícia</h3>
+                    <form id="news-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Título da Notícia</label>
+                                <input type="text" id="news-title" placeholder="Ex: Novo single 'Brilho do Teu Olhar' disponível" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Categoria</label>
+                                <select id="news-category">
+                                    <option value="geral">Geral</option>
+                                    <option value="lancamento">Lançamento</option>
+                                    <option value="bastidores">Bastidores</option>
+                                    <option value="evento">Evento</option>
+                                    <option value="entrevista">Entrevista</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Conteúdo da Notícia</label>
+                            <textarea id="news-content" placeholder="Escreva o conteúdo completo da notícia aqui..." rows="6" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>📸 URL da Imagem (Opcional)</label>
+                            <input type="url" id="news-image-url" placeholder="https://exemplo.com/imagem-noticia.jpg">
+                            <small>💡 Cole a URL da imagem para ilustrar a notícia</small>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-plus"></i> Publicar Notícia
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SoundCloud Widget Container -->
+    <div id="soundcloud-container" style="display: none;"></div>
+
+    <!-- Audio Element -->
+    <audio id="audio-player" preload="metadata"></audio>
+
+    <!-- Scripts -->
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
